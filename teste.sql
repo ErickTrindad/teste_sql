@@ -3,4 +3,4 @@ SELECT  '0000141'
        ,Max(Case When idx % 2 = 0 Then arr_element End) AS des_atributo
   From (Select  Unnest(regexp_split_to_array('Modelo: Rolex Metal: Ouro amarelo Ocasião: Casual', '\s+(?=[A-Z])'))                                      As arr_element
                ,Generate_Series(1, array_length(regexp_split_to_array('Modelo: Rolex Metal: Ouro amarelo Ocasião: Casual', '\s+(?=[A-Z])'), 1))         As idx) splitado
- Group By (idx - 1) / 2
+ Group By (idx - 1) 
